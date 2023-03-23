@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -17,11 +18,9 @@ import java.util.List;
  */
 public class Room 
 {
-    public String description;
-    public Room northExit;
-    public Room southExit;
-    public Room eastExit;
-    public Room westExit;
+    private String description;
+
+    private HashMap<String, Room> exits = new HashMap<>();
 
     List<Objeto> objetos = new ArrayList<>();
 
@@ -47,16 +46,16 @@ public class Room
     public void setExits(Room north, Room east, Room south, Room west) 
     {
         if(north != null) {
-            northExit = north;
+            exits.put("norte", north);
         }
         if(east != null) {
-            eastExit = east;
+            exits.put("leste", east);
         }
         if(south != null) {
-            southExit = south;
+            exits.put("sul", south);
         }
         if(west != null) {
-            westExit = west;
+            exits.put("oeste", west);
         }
     }
 
