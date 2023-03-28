@@ -84,20 +84,7 @@ public class Game
         System.out.println("Digite 'ajuda' se precisar de ajuda.");
         System.out.println();
         System.out.println("Você está " + currentRoom.getDescription());
-        System.out.print("Saidas:  ");
-        if(currentRoom.northExit != null) {
-            System.out.print("norte ");
-        }
-        if(currentRoom.eastExit != null) {
-            System.out.print("leste ");
-        }
-        if(currentRoom.southExit != null) {
-            System.out.print("sul ");
-        }
-        if(currentRoom.westExit != null) {
-            System.out.print("oeste ");
-        }
-        System.out.println();
+        currentRoom.printExits();
     }
 
     /**
@@ -141,7 +128,7 @@ public class Game
         System.out.println("por aí na universidade.");
         System.out.println();
         System.out.println("Suas palavras de comando são:");
-        System.out.println("   ir sair ajuda");
+        parser.showCommands();
     }
 
     /** 

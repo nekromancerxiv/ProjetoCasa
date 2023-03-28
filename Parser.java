@@ -62,4 +62,12 @@ public class Parser
             return new Command(null, word2); 
         }
     }
+
+    public CommandWords checkCommands() {
+        return commands;
+    }
+
+    public void showCommands(){
+        commands.printCommands();
+    }
 }
