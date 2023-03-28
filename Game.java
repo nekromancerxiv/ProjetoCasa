@@ -46,11 +46,11 @@ public class Game
         office = new Room("no escritório de administração de computação");
         
         // initialise room exits
-        outside.setExits(null, theater, lab, pub);
-        theater.setExits(null, null, null, outside);
-        pub.setExits(null, outside, null, null);
-        lab.setExits(outside, office, null, null);
-        office.setExits(null, null, null, lab);
+        outside.initializeExits(null, theater, lab, pub);
+        theater.initializeExits(null, null, null, outside);
+        pub.initializeExits(null, outside, null, null);
+        lab.initializeExits(outside, office, null, null);
+        office.initializeExits(null, null, null, lab);
 
         currentRoom = outside;  // start game outside
     }

@@ -44,11 +44,17 @@ public class Room
      * @param west The west exit.
      */
 
-    /** Adiciona uma saida, se nao existir uma sala que ocupa essa mesma direcao **/
+    /** Adiciona uma saida **/
     public void setExit(Room destination, String direction){
-        if (exits.containsKey(direction) == false){
-            exits.put(direction, destination);
-        }
+        exits.put(direction, destination);
+    }
+
+    /** Metodo para rapidamente adicionar saidas nas quatro direcoes cardinais **/
+    public void initializeExits(Room north, Room south, Room east, Room west){
+        setExit(north, "norte");
+        setExit(south, "sul");
+        setExit(east, "leste");
+        setExit(west, "oeste");
     }
 
     /** Retorna true se a sala possuir uma saida na direcao especificada **/
