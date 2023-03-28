@@ -43,19 +43,35 @@ public class Room
      * @param south The south exit.
      * @param west The west exit.
      */
-    public void setExits(Room north, Room east, Room south, Room west) 
-    {
-        if(north != null) {
-            exits.put("norte", north);
+
+    /** Adiciona uma saida, se nao existir uma sala que ocupa essa mesma direcao **/
+    public void setExit(Room destination, String direction){
+        if (exits.containsKey(direction) == false){
+            exits.put(direction, destination);
         }
-        if(east != null) {
-            exits.put("leste", east);
+    }
+
+    /** Retorna true se a sala possuir uma saida na direcao especificada **/
+    public boolean exitExists(String direction){
+        if exits.containsKey(direction){
+            return true;
+        }else{
+            return false;
         }
-        if(south != null) {
-            exits.put("sul", south);
+    }
+
+    /** Retorna a sala que esta na direcao especificada **/
+    public Room getRoom(String direction){
+        if exitExists(direction){
+            return exits.get(direction);
         }
-        if(west != null) {
-            exits.put("oeste", west);
+    }
+
+    /** Realiza um loop e imprime todas as direcoes onde existe uma sala na sala atual **/
+    public void printExits(){
+        System.out.println("Saidas: ")
+        for (String path : exits.keySet()){
+        System.out.println(path);
         }
     }
 
@@ -66,5 +82,6 @@ public class Room
     {
         return description;
     }
+
 
 }

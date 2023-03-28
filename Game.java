@@ -160,40 +160,12 @@ public class Game
 
         // Try to leave current room.
         Room nextRoom = null;
-        if(direction.equals("norte")) {
-            nextRoom = currentRoom.northExit;
+        if (currentRoom.exitExists(direction)){
+            currentRoom = currentRoom.getRoom(direction);
+        }else{
+            currentRoom.printExits();
         }
-        if(direction.equals("leste")) {
-            nextRoom = currentRoom.eastExit;
-        }
-        if(direction.equals("sul")) {
-            nextRoom = currentRoom.southExit;
-        }
-        if(direction.equals("oeste")) {
-            nextRoom = currentRoom.westExit;
-        }
-
-        if (nextRoom == null) {
-            System.out.println("Caminho indisponível!");
-        }
-        else {
-            currentRoom = nextRoom;
-            System.out.println("Você está " + currentRoom.getDescription());
-            System.out.print("Saidas: ");
-            if(currentRoom.northExit != null) {
-                System.out.print("norte ");
-            }
-            if(currentRoom.eastExit != null) {
-                System.out.print("leste ");
-            }
-            if(currentRoom.southExit != null) {
-                System.out.print("sul ");
-            }
-            if(currentRoom.westExit != null) {
-                System.out.print("oeste ");
-            }
-            System.out.println();
-        }
+        System.out.println();
     }
 
     /** 
